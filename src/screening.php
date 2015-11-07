@@ -19,7 +19,7 @@
 <body class="page_background">
 
 <div class="container-fluid full-page" id="signin-box" align="center">
-    <div class="kill-me vertical-center">
+    <div class="vertical-center">
         <div class="login-box jumbotron">
             <form role="form" action="submit_screening.php" method="post">
                 <div class="registration">
@@ -37,28 +37,30 @@
                     </div>
                     <button type="button" onclick="recordFormData(window)" class="btn btn-default">Next</button>
                 </div>
-                <div class="screening">
-                    <p>Below are several short prompts. One at a time, please click the button next to each prompt and
-                        record yourself reading it.</p>
-                    <?php
+                <div class="screening" >
+                    <table class="table-striped table-bordered" width="100%">
+                        <thead><p>Below are several short prompts. One at a time, please click the button next to each
+                            prompt and
+                            record yourself reading it.</p></thead>
+                        <?php
 
-                    $prompts_list = array("number", "more", "sing", "three", "change", "although", "develop", "family", "ground", "laugh", "measure", 'stretch', 'voice', 'climb', 'shape', 'stairs', "walk", "human", "bathtub", "root");
-                    foreach ($prompts_list as $prompt) {
-                        echo '
+                        $prompts_list = array("number", "more", "sing", "three", "change", "although", "develop", "family", "ground", "laugh", "measure", 'stretch', 'voice', 'climb', 'shape', 'stairs', "walk", "human", "bathtub", "root");
+                        foreach ($prompts_list as $prompt) {
+                            echo '
+<tr>
 
-                        <div class="row prompt">
-                        <div class="col-md-8">
-                                <p> ' . $prompt . ' </p>
-                        </div>
-                        <div class="col-md-4">
-                                                        <div class="record-button" onclick="record(/*TODO: parameterized recording*/)" >
-                                </div>
-                        </div>
-                        </div>
+                                <td class="prompt" width="75%">' . $prompt . '</td>
+                               <td>
+                               <div class="record-button" onclick="record(/*TODO: parameterized recording*/)" >
+                               </div>
+                               </td>
+
+                        </tr>
                         ';
-                    }
+                        }
 
-                    ?>
+                        ?>
+                    </table>
 
                     <div class="row">
                         <button type="submit" class="btn-primary" onclick="submit()">Submit</button>

@@ -11,7 +11,6 @@
   float: none;
   padding-top: 10%;
 }
-/*http://stackoverflow.com/questions/22196587/how-to-center-align-vertically-the-container-in-bootstrap */
-.login-box {
-  width: 40%;
+.centered_box {
+  margin-top: 30%;
 }

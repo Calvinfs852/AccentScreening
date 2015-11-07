@@ -13,51 +13,45 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 
 </head>
-<body class="pagebackground">
+<body class="page_background">
+<div class="container-fluid " align="center" style="width: 40%;">
+    <div class="jumbotron vertical-center centered_box">
+        <?php
+        $connection = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
+        $query = "SELECT id_screening, name, date FROM screenings WHERE reviewed=0";
+        $result = mysqli_query($connection, $query);
 
-<div class="container">
-    <?php
-    $connection = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
-    $query = "SELECT name, date FROM screenings WHERE reviewed=0";
-    $result = mysqli_query($connection, $query);
+        if ($result) {
+            echo '<div class="table-responsive"><table class = "table">';
+            while ($row = mysqli_fetch_array($result)) {
+                $name = $row["name"];
+                $date = $row["date"];
+                $id = $row["id_screening"];
 
-    if ($result) {
-        echo '<div class="table-responsive"><table class = "table">';
-        while ($row = mysqli_fetch_array($result)) {
-            $name = $row["name"];
-            $date = $row["date"];
-            include "screening_alert.php";
+                include "screening_alert.php";
+            }
+            echo '</table></div>';
         }
-        echo '</table></div>';
-    }
-    ?>
+        ?>
+        <div class="row">
+            <div class="jumbotron table-responsive">
+                <p>Reviewed screenings:</p>
+                <table class="table">
+                    <?php
+                    $connection = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
+                    $query = "SELECT id_screening, name, date FROM screenings WHERE reviewed=1";
+                    $result = mysqli_query($connection, $query);
 
-
-    <div class="row">
-        <div class="col-md-2 pull-right">
-            <label for="logoutbutton">$name</label>
-            <button class="btn-warning btn-s" id="logoutbutton" value="Log Out" type="button">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="jumbotron table-responsive">
-            <p>Reviewed screenings:</p>
-            <table class="table">
-                <?php
-                $connection = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
-                $query = "SELECT name, date FROM screenings";
-                $result = mysqli_query($connection, $query);
-
-                if ($result) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        $name = $row["name"];
-                        $date = $row["date"];
-                        include "screening_alert.php";
+                    if ($result) {
+                        while ($row = mysqli_fetch_array($result)) {
+                            $name = $row["name"];
+                            $date = $row["date"];
+                            include "screening_alert.php";
+                        }
                     }
-                }
-                ?>
-            </table>
+                    ?>
+                </table>
+            </div>
         </div>
     </div>
 </div>
