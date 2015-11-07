@@ -26,7 +26,11 @@
         <data-type>datetime</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="8" parent="2" name="PRIMARY">
+      <column id="8" parent="2" name="reviewed">
+        <data-type>bit(1)</data-type>
+        <default-expression>b&apos;0&apos;</default-expression>
+      </column>
+      <key id="9" parent="2" name="PRIMARY">
         <columns>id_screening</columns>
         <primary>1</primary>
       </key>
