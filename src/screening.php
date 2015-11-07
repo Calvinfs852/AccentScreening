@@ -35,37 +35,31 @@
                         <label for="phone">Phone Number:</label>
                         <input type="text" class="form-control" id="phone" name="phone">
                     </div>
-                    <div class="checkbox">
-                        <!--<label><input type="checkbox"> Remember me</label>  TODO: Add further information-->
-                    </div>
                     <button type="button" onclick="recordFormData(window)" class="btn btn-default">Next</button>
-
                 </div>
                 <div class="screening">
-                    <p>Below are several short prompts. One at a time, please click the button next to each prompt and record yourself reading it.</p>
+                    <p>Below are several short prompts. One at a time, please click the button next to each prompt and
+                        record yourself reading it.</p>
+                    <?php
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="jumbotron">
-                                <p> And this is where my prompts would be </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="record-button" onclick="record(/*TODO: parameterized recording*/)">
+                    $prompts_list = array("number", "more", "sing", "three", "change", "although", "develop", "family", "ground", "laugh", "measure", 'stretch', 'voice', 'climb', 'shape', 'stairs', "walk", "human", "bathtub", "root");
+                    foreach ($prompts_list as $prompt) {
+                        echo '
 
-                            </div>
+                        <div class="row prompt">
+                        <div class="col-md-8">
+                                <p> ' . $prompt . ' </p>
                         </div>
                         <div class="col-md-4">
+                                                        <div class="record-button" onclick="record(/*TODO: parameterized recording*/)" >
+                                </div>
+                        </div>
+                        </div>
+                        ';
+                    }
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="jumbotron">
-                                <p>If I had any </p>
-                            </div>
-                        </div>
-                    </div>
+                    ?>
+
                     <div class="row">
                         <button type="submit" class="btn-primary" onclick="submit()">Submit</button>
                     </div>

@@ -16,20 +16,27 @@
   width: 40%;
 }
 .record-button {
-  width: 160px;
-  height: 80px;
-  background: #CC9900;
+  width: 30px;
+  height: 30px;
+  background: red;
   border-radius: 50%;
+  cursor: pointer;
 }
-.oval {
-  width: 160px;
-  height: 80px;
-  background: #CC9900;
+.record_button {
+  width: 30px;
+  height: 30px;
+  background: red;
   border-radius: 50%;
+  cursor: pointer;
 }
 .screening-box {
   display: none;
 }
 .screening {
   display: none;
+}
+.prompt {
+  line-height: 150%;
+  border: solid black thick;
+  border-collapse: collapse;
 }

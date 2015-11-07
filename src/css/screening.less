@@ -2,17 +2,20 @@
 @import "register";
 
 .record-button{
-    .oval
+    .record_button
 
 }
 
 //styling from http://stackoverflow.com/questions/26961221/how-to-make-an-oval-in-css
 
-.oval {
-    width: 160px;
-    height: 80px;
-    background: #CC9900;
+@button_size:  30px;
+
+.record_button {
+    width: @button_size;
+    height: @button_size;
+    background: red;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .screening-box{
@@ -21,4 +24,10 @@
 
 .screening{
   display: none;
+}
+
+.prompt{
+    line-height: 150%;
+    border: solid black thick;
+    border-collapse: collapse;
 }
