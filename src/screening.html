@@ -1,0 +1,50 @@
+<!-- example from W3Schools Tutorial on Bootstrap -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log in to take your speech assessment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="css/screening.less" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <script src="js/screening.js"></script>
+    <script src="js/vendor/RecordMp3Js/recordmp3.js"></script>
+
+
+</head>
+<body class="page_background">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+                <p> And this is where my prompts would be </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="record-button" onclick="record(/*TODO: parameterized recording*/)">
+
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+                <p>If I had any </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn-primary" onclick="submit()">Submit</button>
+    </div>
+</div>
+
+</body>
+</html>
