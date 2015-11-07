@@ -22,7 +22,7 @@
 <div class="container-fluid full-page" id="signin-box" align="center">
     <div class="kill-me vertical-center">
         <div class="login-box jumbotron">
-            <form role="form" action="screening.php">
+            <form role="form" action="screening.php" method="post">
                 <div class="registration">
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -39,7 +39,9 @@
                     <div class="checkbox">
                         <!--<label><input type="checkbox"> Remember me</label>  TODO: Add further information-->
                     </div>
-                    <button type="button" onclick="recordFormData(window)" class="btn btn-default">Submit</button>
+                    <button type="button" onclick="recordFormData(window)" class="btn btn-default">Next</button>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
                 </div>
                 <div class="screening">
                     <div class="row">
