@@ -21,12 +21,12 @@
 <div class="container-fluid full-page" align="center">
     <div class="kill-me vertical-center">
         <div class="login-box jumbotron">
-            <form role="form" >
+            <form role="form" action="verify.php" method="post">
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="text" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
-                <button type="submit" onclick="verifyAndLogin($('#password')[0].value)" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
     </div>

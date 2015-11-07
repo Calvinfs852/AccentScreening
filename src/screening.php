@@ -14,6 +14,7 @@ $db = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test"
 $query = "INSERT INTO screenings (name, phone, email) VALUES (" . $name . ", " . $phone . ", '" . $email . "');";//Single quotes around email to avoid @ error
 if (mysqli_query($db, $query)) {
     echo "New record created successfully";
+    mail("cfscott@elearn.pstcc.edu", "New Screening", $name . " has completed the screening. You can review it here. \nContact information:\n" . $email . "\n". $phone /* TODO insert link to screening feedback page*/);
 } else {
     echo "Error: " . $query . "<br>" . mysqli_error($db);
 }
