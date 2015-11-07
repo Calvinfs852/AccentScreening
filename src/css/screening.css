@@ -27,3 +27,6 @@
   background: #CC9900;
   border-radius: 50%;
 }
+.screening-box {
+  display: none;
+}
