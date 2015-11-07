@@ -1,5 +1,3 @@
-<!-- example from W3Schools Tutorial on Bootstrap -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
