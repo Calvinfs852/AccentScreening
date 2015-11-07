@@ -22,53 +22,54 @@
 <div class="container-fluid full-page" id="signin-box" align="center">
     <div class="kill-me vertical-center">
         <div class="login-box jumbotron">
-            <form role="form" >
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name">
+            <form role="form" action="screening.php">
+                <div class="registration">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="checkbox">
+                        <!--<label><input type="checkbox"> Remember me</label>  TODO: Add further information-->
+                    </div>
+                    <button type="button" onclick="recordFormData(window)" class="btn btn-default">Submit</button>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email">
+                <div class="screening">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="jumbotron">
+                                <p> And this is where my prompts would be </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="record-button" onclick="record(/*TODO: parameterized recording*/)">
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="jumbotron">
+                                <p>If I had any </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn-primary" onclick="submit()">Submit</button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="text" class="form-control" id="phone">
-                </div>
-                <div class="checkbox">
-                    <!--<label><input type="checkbox"> Remember me</label>  TODO: Add further information-->
-                </div>
-                <button type="submit" onclick="recordFormData(window)" class="btn btn-default">Submit</button>
             </form>
         </div>
-    </div>
-</div>
-
-<div class="container screening-box" id="screening-box">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="jumbotron">
-                <p> And this is where my prompts would be </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="record-button" onclick="record(/*TODO: parameterized recording*/)">
-
-            </div>
-        </div>
-        <div class="col-md-4">
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="jumbotron">
-                <p>If I had any </p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <button type="submit" class="btn-primary" onclick="submit()">Submit</button>
     </div>
 </div>
 

@@ -18,6 +18,7 @@ alert("recording");
 }
 
 function submit(){
+
     alert("Data sent to database\nEmail sent to admin\nYou will receive a personalized email with a summary of your results as soon as it is ready\nThank you and have a nice day!")
 
 
