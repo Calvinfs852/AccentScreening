@@ -39,7 +39,7 @@
 
                                 <td class="prompt" width="75%">' . $prompt . '</td>
                                <td>
-                               <div class="replay-button" onclick="replay(/*TODO: recording*/)" >
+                               <img class="replay-button" src="img/playbutton.png" onclick="replay(/*TODO: recording*/)" >
                                </div>
                                </td>
 
@@ -61,7 +61,6 @@
 
 </body>
 </html>
-
 
 
 <?php
