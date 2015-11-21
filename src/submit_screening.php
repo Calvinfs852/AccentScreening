@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-    <script src="js/vendor/RecordMp3Js/recordmp3.js"></script>
+    <script src="js/vendor/Recordmp3js-master/recordmp3.js"></script>
 
 
 </head>
@@ -25,7 +25,8 @@
         $email = $_POST["email"];
         $phone = $_POST["phone"];
 
-        $db = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
+        //$db = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306"); //for development
+        $db = mysqli_connect("localhost", "c2230a01", "c2230a01", "c2230a01test"); //for ps11. assume port 3306
         $query = "INSERT INTO screenings (name, phone, email) VALUES ('".$name."', '".$phone."','".$email."');";
         if (mysqli_query($db, $query)) {
             echo "New record created successfully";

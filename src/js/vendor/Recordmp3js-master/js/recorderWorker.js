@@ -37,6 +37,7 @@ function record(inputBuffer){
 }
 
 function exportWAV(type){
+  //throw JSON.stringify({data:type}) //test if worker was called
   var buffers = [];
   for (var channel = 0; channel < numChannels; channel++){
     buffers.push(mergeBuffers(recBuffers[channel], recLength));

@@ -10,8 +10,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <script src="js/screening.js"></script>
-    <script src="js/vendor/RecordMp3Js/recordmp3.js"></script>
-
+    <script src="js/vendor/Recordmp3js-master/recordmp3.js"></script>
 
 </head>
 <body class="page_background">
@@ -37,24 +36,22 @@
                 </div>
                 <div class="screening" >
                     <table class="table-striped table-bordered" width="100%">
-                        <thead><p>Below are several short prompts. One at a time, please click the button next to each
+                        <thead>Below are several short prompts. One at a time, please click the button next to each
                             prompt and
-                            record yourself reading it.</p></thead>
+                            record yourself reading it.</thead>
                         <?php
 
                         $prompts_list = array("number", "more", "sing", "three", "change", "although", "develop", "family", "ground", "laugh", "measure", 'stretch', 'voice', 'climb', 'shape', 'stairs', "walk", "human", "bathtub", "root");
                         foreach ($prompts_list as $prompt) {
                             echo '
 <tr>
-
                                 <td class="prompt" width="75%">' . $prompt . '</td>
                                <td>
-                               <div class="record-button" onclick="record(/*TODO: parameterized recording*/)" >
-                               </div>
+                               <button class="recordButton" onclick="startRecording(this, \'' . $prompt . '\');" >record</button>
+                               <button onclick="stopRecording(this);" disabled>stop</button>
                                </td>
-
                         </tr>
-                        ';
+                            ';
                         }
 
                         ?>

@@ -1,7 +1,7 @@
 (function(window){
 
-  var WORKER_PATH = 'js/recorderWorker.js';
-  var encoderWorker = new Worker('js/mp3Worker.js');
+  var WORKER_PATH = 'js/vendor/RecordMp3js-master/js/recorderWorker.js';
+  var encoderWorker = new Worker('js/vendor/RecordMp3js-master/js/mp3Worker.js');
 
   var Recorder = function(source, cfg){
     var config = cfg || {};
@@ -84,7 +84,6 @@
 
         console.log(data);
 		console.log("Converting to Mp3");
-		log.innerHTML += "\n" + "Converting to Mp3";
 
         encoderWorker.postMessage({ cmd: 'init', config:{
             mode : 3,
@@ -99,7 +98,7 @@
             if (e.data.cmd == 'data') {
 
 				console.log("Done converting to Mp3");
-				log.innerHTML += "\n" + "Done converting to Mp3";
+				//log.innerHTML += "\n" + "Done converting to Mp3";
 
 				/*var audio = new Audio();
 				audio.src = 'data:audio/mp3;base64,'+encode64(e.data.buf);
@@ -110,19 +109,19 @@
 				var mp3Blob = new Blob([new Uint8Array(e.data.buf)], {type: 'audio/mp3'});
 				uploadAudio(mp3Blob);
 
-				var url = 'data:audio/mp3;base64,'+encode64(e.data.buf);
-				var li = document.createElement('li');
-				var au = document.createElement('audio');
-				var hf = document.createElement('a');
-
-				au.controls = true;
-				au.src = url;
-				hf.href = url;
-				hf.download = 'audio_recording_' + new Date().getTime() + '.mp3';
-				hf.innerHTML = hf.download;
-				li.appendChild(au);
-				li.appendChild(hf);
-				recordingslist.appendChild(li);
+				//var url = 'data:audio/mp3;base64,'+encode64(e.data.buf);
+				//var li = document.createElement('li');
+				//var au = document.createElement('audio');
+				//var hf = document.createElement('a');
+//
+				//au.controls = true;
+				//au.src = url;
+				//hf.href = url;
+				//hf.download = 'audio_recording_' + new Date().getTime() + '.mp3';
+				//hf.innerHTML = hf.download;
+				//li.appendChild(au);
+				//li.appendChild(hf);
+				//recordingslist.appendChild(li);
 
             }
         };
@@ -181,19 +180,19 @@
 		var reader = new FileReader();
 		reader.onload = function(event){
 			var fd = new FormData();
-			var mp3Name = encodeURIComponent('audio_recording_' + new Date().getTime() + '.mp3');
+			var mp3Name = encodeURIComponent(imprint + "_" + currentPrompt);
 			console.log("mp3name = " + mp3Name);
 			fd.append('fname', mp3Name);
 			fd.append('data', event.target.result);
 			$.ajax({
 				type: 'POST',
-				url: 'upload.php',
+				url: 'js/vendor/Recordmp3js-master/upload.php',
 				data: fd,
 				processData: false,
 				contentType: false
 			}).done(function(data) {
 				//console.log(data);
-				log.innerHTML += "\n" + data;
+				//log.innerHTML += "\n" + data;
 			});
 		};
 		reader.readAsDataURL(mp3Data);

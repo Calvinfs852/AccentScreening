@@ -16,7 +16,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <script src="js/review.js"></script>
-    <script src="js/vendor/RecordMp3Js/recordmp3.js"></script>
+    <script src="js/vendor/Recordmp3js-master/recordmp3.js"></script>
 
 
 </head>

@@ -14,13 +14,13 @@
   var audio_context, source;
 
   var __log = function(e, data) {
-    var log = document.querySelector("#log");
-    if (log && log.length > 0) {
-      log = log[0];
-      log.innerHTML += "\n" + e + " " + (data || '');
-    } else {
-      console.log(e, data);
-    }
+    //var log = document.querySelector("#log");
+    //if (log && log.length > 0) {
+    //  log = log[0];
+    //  log.innerHTML += "\n" + e + " " + (data || '');
+    //} else {
+    //  console.log(e, data);
+    //}
   };
 
   var Recorder = function(cfg) {
