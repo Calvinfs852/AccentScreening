@@ -83,7 +83,7 @@
         data = parseWav(buffer);
 
         console.log(data);
-		console.log("Converting to Mp3");
+        console.log("Converting to Mp3");
 
         encoderWorker.postMessage({ cmd: 'init', config:{
             mode : 3,
@@ -192,7 +192,8 @@
 				contentType: false
 			}).done(function(data) {
 				//console.log(data);
-				//log.innerHTML += "\n" + data;
+                //log.innerHTML += "\n" + data;
+
 			});
 		};
 		reader.readAsDataURL(mp3Data);

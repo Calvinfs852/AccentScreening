@@ -18,7 +18,7 @@
     <div class="jumbotron vertical-center centered_box">
         <?php
         $connection = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
-        $query = "SELECT id_screening, name, date FROM screenings WHERE reviewed=0";
+        $query = "SELECT id_screening, name, date, imprint FROM screenings WHERE reviewed=0";
         $result = mysqli_query($connection, $query);
 
         if ($result) {
@@ -27,6 +27,7 @@
                 $name = $row["name"];
                 $date = $row["date"];
                 $id = $row["id_screening"];
+                $imprint = $row["imprint"];
 
                 include "screening_alert.php";
             }
@@ -39,13 +40,14 @@
                 <table class="table">
                     <?php
                     $connection = mysqli_connect("localhost", "screeningapp", "8xjhuyYXCdqV", "c2230a01test", "3306");
-                    $query = "SELECT id_screening, name, date FROM screenings WHERE reviewed=1";
+                    $query = "SELECT id_screening, name, date, imprint FROM screenings WHERE reviewed=1";
                     $result = mysqli_query($connection, $query);
 
                     if ($result) {
                         while ($row = mysqli_fetch_array($result)) {
                             $name = $row["name"];
                             $date = $row["date"];
+                            $imprint = $row["imprint"];
                             include "screening_alert.php";
                         }
                     }

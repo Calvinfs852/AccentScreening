@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-    <script src="js/screening.js"></script>
     <script src="js/vendor/Recordmp3js-master/recordmp3.js"></script>
 
 </head>
@@ -18,7 +17,8 @@
 <div class="container-fluid full-page" id="signin-box" align="center">
     <div class="vertical-center">
         <div class="login-box jumbotron">
-            <form role="form" action="submit_screening.php" method="post">
+            <form role="form" action="submit_screening.php" id="screening" method="post">
+                <input id="imprint" name="imprint" type="hidden" value="" />
                 <div class="registration">
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -47,8 +47,8 @@
 <tr>
                                 <td class="prompt" width="75%">' . $prompt . '</td>
                                <td>
-                               <button class="recordButton" onclick="startRecording(this, \'' . $prompt . '\');" >record</button>
-                               <button onclick="stopRecording(this);" disabled>stop</button>
+                               <button class="recordButton btn btn-default" onclick="startRecording(this, \'' . $prompt . '\');" disabled>record</button>
+                               <button onclick="stopRecording(this);" class="btn btn-danger" disabled>stop</button>
                                </td>
                         </tr>
                             ';
@@ -66,5 +66,6 @@
     </div>
 </div>
 
+<script src="js/screening.js"></script>
 </body>
 </html>

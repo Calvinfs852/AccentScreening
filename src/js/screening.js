@@ -1,27 +1,29 @@
 'use strict';
 
+
+var index = 0;
+function nextButton()
+{
+
+    var buttons = $("button.recordButton");
+    var button = buttons[index];
+    var realButtonPerhaps = $(button);
+    realButtonPerhaps.removeAttr("disabled");
+
+    console.log(button);
+    index++;
+}
+
+nextButton();
+//window.onload = nextButton();
+
+
 //recording using MediaDevices API https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
 //Using recorder.js from github
 
 // Put variables in global scope to make them available to the browser console.
 var audio = document.querySelector('audio');
-var constraints = window.constraints = {
-    audio: true,
-    video: false
-};
-var errorDisplay = $("#errorMessage");//TODO: Make Error Message display
 
-var screeningAudioContext = new (window.AudioContext || window.webkitAudioContext);
-
-var bufferLength = 4096;
-var inputChannels = 1;
-var outputChannels = 1;
-
-var processor = screeningAudioContext.createScriptProcessor(bufferLength, inputChannels, outputChannels); //4096 buffer size, 1 input channel, 1 output channel. No particular reason for 4096.
-
-var workerpath = "js/vendor/Recorderjs/recorderWorker.js";
-
-var recorderConfig = {workerPath : workerpath, bufferLen : bufferLength };
 
 var currentPrompt;
 var imprint;
@@ -43,12 +45,25 @@ function submit(){
 function recordFormData(window)
 {
     var email = $("input#email").val();
-    var now = new Date().getTime();
-    imprint = email + now;
+    var now = new Date();
+    var month = now.getMonth() +1; //JS date is 0-based.
+    if (month<10)
+    {
+        month = "0"+month;
+    }
+    var day = now.getDate();//getDay returns day of the week. -_-
+    if (day<10)
+    {
+        day = "0"+day;
+    }
+    var datetime = "" + now.getFullYear() + month + day + now.getHours() + now.getMinutes() + now.getSeconds();
+    imprint = email + datetime; //@ and . valid in file names. TODO: consider what other special characters are valid in emails that may not be valid in file names.
 
     $("div.registration").hide();
     $("div.screening").show();
+    $('#imprint').attr('value',imprint);
 }
+
 
 /*
 Below moved from recordmp3.js/index.html inline script to here
@@ -76,7 +91,7 @@ function startUserMedia(stream) {
     __log('Input connected to audio context destination.');
 
     recorder = new Recorder(input, {
-        numChannels: inputChannels
+        numChannels: 1
     });
     /*
     Unsure if inputChannels is accurate, but is equal to outputChannels for now so irrelevant
@@ -95,7 +110,7 @@ function startRecording(button, prompt) {
 function stopRecording(button) {
     recorder && recorder.stop();
     button.disabled = true;
-    button.previousElementSibling.disabled = false;
+    //button.previousElementSibling.disabled = false;
     __log('Stopped recording.');
 
     // create WAV download link using audio data blob
@@ -119,6 +134,7 @@ function createDownloadLink() {
          li.appendChild(au);
          li.appendChild(hf);
          recordingslist.appendChild(li);*/
+        nextButton(); //enables next button on callback
     });
 }
 
